@@ -1,0 +1,11 @@
+.contenedor {
+  /* height: 96%; */
+  width: 96%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: var(--secondary-light);
+}

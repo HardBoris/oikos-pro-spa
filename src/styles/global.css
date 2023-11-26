@@ -1,0 +1,72 @@
+body,
+header,
+main,
+footer,
+aside,
+section,
+form,
+input,
+div,
+h1,
+h2,
+p,
+span,
+button,
+ul {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+:root {
+  --primary-dark: hsl(240, 5%, 5%);
+  --primary-darker-25: hsl(240, 25%, 10%);
+  --primary-darker: hsl(240, 50%, 15%);
+  --primary-25: hsl(240, 60%, 25%);
+  --primary: hsl(240, 60%, 50%);
+  --primary-75: hsl(240, 60%, 75%);
+  --primary-lighter: hsl(240, 50%, 85%);
+  --primary-lighter-25: hsl(240, 25%, 90%);
+  --primary-light: hsl(240, 5%, 95%);
+  --secondary-light: hsl(180, 5%, 95%);
+  --secondary-lighter-25: hsl(180, 25%, 90%);
+  --secondary-lighter: hsl(180, 50%, 85%);
+  --secondary-75: hsl(180, 60%, 75%);
+  --secondary: hsl(180, 60%, 50%);
+  --secondary-25: hsl(180, 60%, 25%);
+  --secondary-darker: hsl(180, 50%, 15%);
+  --secondary-darker-25: hsl(180, 25%, 10%);
+  --secondary-dark: hsl(180, 5%, 5%);
+  --attention-dark: hsl(60, 100%, 10%);
+  --attention-25: hsl(60, 100%, 25%);
+  --attention: hsl(60, 100%, 50%);
+  --attention-75: hsl(60, 100%, 75%);
+  --attention-light: hsl(60, 100%, 90%);
+  --warning-dark: hsl(0, 100%, 5%);
+  --warning-25: hsl(0, 100%, 25%);
+  --warning: hsl(0, 100%, 50%);
+  --warning-75: hsl(0, 100%, 75%);
+  --warning-light: hsl(0, 100%, 95%);
+  --success-dark: hsl(120, 100%, 10%);
+  --success-25: hsl(120, 100%, 25%);
+  --success: hsl(120, 100%, 50%);
+  --success-75: hsl(120, 100%, 75%);
+  --success-light: hsl(120, 100%, 90%);
+  --modal-overlay: rgba(122, 122, 204, 0.3);
+  --primary-shadow: hsl(240, 100%, 50%, 0.5);
+  --secondary-shadow: hsl(240, 100%, 50%, 0.5);
+}
+
+body {
+  color: var(--primary-light);
+  background-color: var(--secondary);
+  font-size: calc(10px + 2vmin);
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  background: var(--secondary-lighter-25);
+}

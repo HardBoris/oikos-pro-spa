@@ -1,0 +1,20 @@
+.purchase-info,
+.purchase-detail {
+  width: 100%;
+  height: 100%;
+}
+
+.purchase-elements-list {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 426px) {
+  .purchase_body section {
+    width: 100%;
+  }
+}

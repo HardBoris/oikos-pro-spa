@@ -1,0 +1,65 @@
+.form-wrapper-mr1 {
+  width: 300px;
+  height: 400px;
+}
+
+.input-wrapper-mr1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-individual-mr1 {
+  width: 90%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-mr1 {
+  width: 90%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#requestId {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.invisible {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .form-wrapper-mr1 {
+    width: 600px;
+    height: 400px;
+  }
+
+  .input-wrapper-mr1 {
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .input-individual-mr1 {
+    width: 90%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .input-mr1 {
+    width: 90%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
