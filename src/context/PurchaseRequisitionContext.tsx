@@ -1,53 +1,47 @@
-import { ReactNode, createContext, useContext, useState } from "react";
-import { ElementToBuy } from "./ElementContext";
+import { ReactNode, createContext, useContext } from "react";
 import { localApi as api } from "../services/api";
-import { useAuth } from "./UserContext";
+import { Detail } from "./DetailContext";
 
-interface PRProviderProps {
+interface PurchaseRequestProviderProps {
   children: ReactNode;
 }
 
-export interface PRequest {
+export interface PurchaseRequest {
   prequestId?: string;
   listDate: string;
-  details: ElementToBuy[];
+  details: Detail[];
 }
 
-interface PRequestContextData {
-  prequestList: PRequest[];
-  prequest: PRequest;
-  prequestsLoader: () => void;
-  prequestLoader: () => void;
-  prequestCreator: (data: PRequest) => void;
-  prequestEditor: (data: PRequest) => void;
-  prequestEliminator: (id: string) => void;
+interface PurchaseRequestContextData {
+  PurchaseRequestList: () => void;
+  PurchaseRequestCreator: (data: PurchaseRequest) => void;
 }
 
-export const PRContext = createContext<PRequestContextData>(
-  {} as PRequestContextData
+export const PurchaseRequestContext = createContext<PurchaseRequestContextData>(
+  {} as PurchaseRequestContextData
 );
 
-const usePR = () => useContext(PRContext);
+const usePurchaseRequest = () => useContext(PurchaseRequestContext);
 
-const PRProvider = ({ children }: PRProviderProps) => {
-  const { company, token, user } = useAuth();
-  const [prequestList, setPrequestList] = useState<PRequest[]>([]);
-  const [prequest, setPrequest] = useState<PRequest>({} as PRequest);
-  // const [thisPRequest, setThisPRequest] = useState<PRequest>({} as PRequest);
-
-  const prequestsLoader = async () => {
+const PurchaseRequestProvider = ({
+  children,
+}: PurchaseRequestProviderProps) => {
+  // const [solicitud, setSolicitud] = useState()
+  const PurchaseRequestList = async () => {
     await api
-      .get(`/${company.companyId}/prequests`, {
+      .get(
+        `/purchase-requests` /* , {
         headers: { authorization: `Bearer ${token}` },
-      })
+      } */
+      )
       .then((response) => {
-        setPrequestList(response.data);
-        // console.log(response.data);
+        // setSolicitud(response.data);
+        console.log(response.data);
       })
       .catch((error) => console.log(error));
   };
 
-  const prequestLoader = async () => {
+  /* const prequestLoader = async () => {
     await api
       .get(`/${company.companyId}/prequests/:prequestId`, {
         headers: { authorization: `Bearer ${token}` },
@@ -56,49 +50,46 @@ const PRProvider = ({ children }: PRProviderProps) => {
         setPrequest(response.data);
       })
       .catch((error) => console.log(error));
-  };
+  }; */
 
-  const prequestCreator = async (data: PRequest) => {
-    const objeto = { ...data, requestor: user.userId };
+  const PurchaseRequestCreator = async (data: PurchaseRequest) => {
     await api
-      .post(`/${company.companyId}/prequests/register`, objeto, {
+      .post(
+        `/purchase-requests/register`,
+        data /* , {
         headers: { authorization: `Bearer ${token}` },
-      })
-      .then((response) => setPrequest(response.data))
+      } */
+      )
+      .then((response) => console.log(response.data))
       .catch((error) => console.log(error));
   };
 
-  const prequestEditor = async (data: PRequest) => {
+  /* const prequestEditor = async (data: PRequest) => {
     await api
       .patch(`/${company}/prequests/${data.prequestId}`, data, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((response) => setPrequest(response.data))
       .catch((error) => console.log(error));
-  };
+  }; */
 
-  const prequestEliminator = async (id: string) => {
+  /* const prequestEliminator = async (id: string) => {
     await api
       .delete(`/${company}/prequests/${id}`)
       .then((response) => console.log(response.data))
       .catch((error) => console.log(error));
-  };
+  }; */
 
   return (
-    <PRContext.Provider
+    <PurchaseRequestContext.Provider
       value={{
-        prequestList,
-        prequest,
-        prequestsLoader,
-        prequestLoader,
-        prequestCreator,
-        prequestEditor,
-        prequestEliminator,
+        PurchaseRequestList,
+        PurchaseRequestCreator,
       }}
     >
       {children}
-    </PRContext.Provider>
+    </PurchaseRequestContext.Provider>
   );
 };
 
-export { usePR, PRProvider };
+export { usePurchaseRequest, PurchaseRequestProvider };

@@ -15,7 +15,7 @@ export const Purchases = () => {
       </Helmet>
       <div className="purchase">
         <div className="purchase_header">
-          <Link
+          {/* <Link
             to={`/${company.companyId}/purchases`}
             className={
               location.pathname === `/${company.companyId}/purchases`
@@ -24,19 +24,18 @@ export const Purchases = () => {
             }
           >
             Compras
-          </Link>
+          </Link> */}
           <Link
-            to={`/${company.companyId}/purchases/purchaserequisition`}
+            to={`/test/purchases/purchaserequisition`}
             className={
-              location.pathname ===
-              `/${company.companyId}/purchases/purchaserequisition`
+              location.pathname === `/test/purchases/purchaserequisition`
                 ? "tab activated"
                 : "tab"
             }
           >
             Solicitação de Compra
           </Link>
-          <Link
+          {/* <Link
             to={`/${company.companyId}/purchases/newpurchase`}
             className={
               location.pathname ===
@@ -46,7 +45,7 @@ export const Purchases = () => {
             }
           >
             Nova Compra
-          </Link>
+          </Link> */}
           {/* <Link
             to={`/${company}/purchases/purchasedetails`}
             className={

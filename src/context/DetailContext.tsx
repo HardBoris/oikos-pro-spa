@@ -9,11 +9,9 @@ interface DetailProviderProps {
 
 export interface Detail {
   itemId?: string;
-  purchase?: Purchase;
-  elementId: string;
+  element: string;
   quantity: number;
-  unit: string;
-  cost?: number;
+  measurement: string;
 }
 
 interface DetailContextData {
