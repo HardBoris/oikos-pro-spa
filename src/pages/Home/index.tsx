@@ -5,7 +5,7 @@ export const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Aventura | Home</title>
+        <title>Oikos | Home</title>
       </Helmet>
       <div className="welcome">
         <h1>Oikos</h1>

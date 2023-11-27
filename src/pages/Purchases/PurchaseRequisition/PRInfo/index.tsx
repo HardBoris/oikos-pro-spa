@@ -3,14 +3,14 @@ import { PRDetails } from "../PRDetails";
 import { useState } from "react";
 import { ElementToBuy } from "../../../../context/ElementContext";
 import { Container } from "../../../../components/Container";
-import { usePR } from "../../../../context/PurchaseRequisitionContext";
+// import { usePR } from "../../../../context/PurchaseRequisitionContext";
 import { PRDetailsList } from "../PRDetailsList";
 import { useAuth } from "../../../../context/UserContext";
 import "./PRInfo.css";
 
 export const PRInfo = () => {
   const { user, company } = useAuth();
-  const { prequestCreator } = usePR();
+  // const { prequestCreator } = usePR();
   const ahora = Date.now();
   const [elementos, setElementos] = useState<ElementToBuy[]>([]);
 
@@ -22,7 +22,7 @@ export const PRInfo = () => {
       details: elementos,
     };
     console.log(data);
-    prequestCreator(data);
+    // prequestCreator(data);
   };
 
   return (

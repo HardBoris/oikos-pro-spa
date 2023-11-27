@@ -10,10 +10,10 @@ import { PRDetails } from "./PRDetails";
 import { PRDetailsList } from "./PRDetailsList";
 import Modal from "../../../components/Modal";
 import { ElementToBuy } from "../../../context/ElementContext";
-import { usePR } from "../../../context/PurchaseRequisitionContext";
+// import { usePR } from "../../../context/PurchaseRequisitionContext";
 
 export const PurchaseRequisition = () => {
-  const { prequestCreator } = usePR();
+  // const { prequestCreator } = usePR();
   const { Buy } = usePurchase();
   const [thisPurchase, setThisPurchase] = useState<PurchaseData>(
     {} as PurchaseData
