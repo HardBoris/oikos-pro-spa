@@ -1,12 +1,13 @@
 import { SelectHTMLAttributes } from "react";
 import "./select.style.css";
+import { MyElement } from "../../context/ElementContext";
 
 interface SelectProps extends SelectHTMLAttributes<HTMLInputElement> {
   register: any;
   name: string;
   error?: any;
   label?: string;
-  options: string[];
+  options: MyElement[];
 }
 
 export const Select = ({
@@ -26,8 +27,8 @@ export const Select = ({
       )}
       <select {...register(name)} {...rest} className="select-field">
         {options.map((item, index) => (
-          <option key={index} value={item}>
-            {item}
+          <option key={index} value={item.elementId}>
+            {item.element}
           </option>
         ))}
       </select>

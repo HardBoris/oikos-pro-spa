@@ -9,12 +9,12 @@ import { useEffect } from "react";
 import { Formulario } from "../../../../components/Form";
 import { jsNota } from "../../../../utils";
 import "./PRDetails.css";
+import { Select } from "../../../../components/Select";
 
 const DetailInfoSchema = yup.object().shape({
-  elementName: yup.string().required(),
+  element: yup.string().required(),
   quantity: yup.string().required(),
-  unit: yup.string().required(),
-  elementType: yup.string().required(),
+  measurement: yup.string().required(),
 });
 
 interface DetailsProps {
@@ -36,18 +36,17 @@ export const PRDetails = ({ elementos, setElementos }: DetailsProps) => {
   });
 
   const sender = (info: ElementToBuy) => {
-    const { elementName } = info;
+    const { element } = info;
+    console.log(element);
 
-    const existe = stock.filter(
-      (item) => item.element?.toLowerCase() === elementName.toLowerCase()
-    )[0];
+    const existe = stock.filter((item) => item.elementId === element)[0];
 
     if (!existe) {
       ElementCreator(info);
     }
 
     const material: ElementToBuy = elementos.filter(
-      (item) => item.elementName.toLowerCase() === elementName.toLowerCase()
+      (item) => item.element === element
     )[0];
 
     material
@@ -64,10 +63,9 @@ export const PRDetails = ({ elementos, setElementos }: DetailsProps) => {
   useEffect(() => {
     if (formState.isSubmitSuccessful) {
       reset({
-        elementName: "",
-        elementType: "",
+        element: "",
         quantity: "",
-        unit: "",
+        measurement: "",
       });
     }
   }, [formState, reset]);
@@ -77,23 +75,29 @@ export const PRDetails = ({ elementos, setElementos }: DetailsProps) => {
       <Formulario onSubmit={handleSubmit(sender)}>
         <div className="data-row">
           <div className="detail-wrapper-dt">
-            <div className="individual-detail element-dt">
+            {/* <div className="individual-detail element-dt">
               <BGInput
                 register={register}
-                name="elementName"
-                error={errors.elementName?.message}
+                name="element"
+                error={errors.element?.message}
                 label="Elemento"
                 placeholder="Descrição do elemento"
               />
-            </div>
-            <div className="individual-detail type-dt">
-              <BGInput
+            </div> */}
+            <div className="individual-detail element-dt">
+              <Select
+                label="Elemento"
+                name="element"
+                register={register}
+                options={stock}
+              />
+              {/* <BGInput
                 register={register}
                 name="elementType"
                 error={errors.elementType?.message}
                 label="Tipo de elemento"
                 placeholder="Ferramenta, acessório"
-              />
+              /> */}
             </div>
             <div className="individual-detail qty-dt">
               <BGInput
@@ -107,8 +111,8 @@ export const PRDetails = ({ elementos, setElementos }: DetailsProps) => {
             <div className="individual-detail unit-dt">
               <BGInput
                 register={register}
-                name="unit"
-                error={errors.unit?.message}
+                name="measurement"
+                error={errors.measurement?.message}
                 label="Unidade"
                 placeholder="m, k, l"
               />

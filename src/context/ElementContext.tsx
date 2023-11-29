@@ -19,11 +19,8 @@ export interface MyElement {
 
 export interface ElementToBuy {
   element?: string;
-  elementName: string;
-  elementType: string;
   quantity: string;
-  unit: string;
-  company?: string;
+  measurement: string;
 }
 
 export interface Midia {
@@ -75,7 +72,7 @@ const ElementProvider = ({ children }: ElementProviderProps) => {
 
   const ElementsList = async () => {
     await api
-      .get(`/${company.companyId}/elements`, {
+      .get(`/elements`, {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((response) => setStock(response.data))
