@@ -33,9 +33,9 @@ export const Purchases = () => {
                 : "tab"
             }
           >
-            Solicitação de Compra
+            Solicitações de Compra
           </Link>
-          {/* <Link
+          <Link
             to={`/${company.companyId}/purchases/newpurchase`}
             className={
               location.pathname ===
@@ -44,8 +44,8 @@ export const Purchases = () => {
                 : "tab"
             }
           >
-            Nova Compra
-          </Link> */}
+            Ordens de Compra
+          </Link>
           {/* <Link
             to={`/${company}/purchases/purchasedetails`}
             className={

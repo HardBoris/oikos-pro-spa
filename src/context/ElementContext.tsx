@@ -18,7 +18,7 @@ export interface MyElement {
 }
 
 export interface ElementToBuy {
-  element?: string;
+  element?: MyElement;
   quantity: string;
   measurement: string;
 }

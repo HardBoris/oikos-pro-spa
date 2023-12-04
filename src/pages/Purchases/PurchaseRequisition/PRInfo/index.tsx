@@ -3,26 +3,25 @@ import { PRDetails } from "../PRDetails";
 import { useState } from "react";
 import { ElementToBuy } from "../../../../context/ElementContext";
 import { Container } from "../../../../components/Container";
-// import { usePR } from "../../../../context/PurchaseRequisitionContext";
 import { PRDetailsList } from "../PRDetailsList";
-import { useAuth } from "../../../../context/UserContext";
+// import { useAuth } from "../../../../context/UserContext";
 import "./PRInfo.css";
+import { usePurchaseRequest } from "../../../../context/PurchaseRequisitionContext";
 
 export const PRInfo = () => {
-  const { user, company } = useAuth();
-  // const { prequestCreator } = usePR();
+  // const { user, company } = useAuth();
+  const { PurchaseRequestCreator } = usePurchaseRequest();
   const ahora = Date.now();
   const [elementos, setElementos] = useState<ElementToBuy[]>([]);
 
   const sender = () => {
     const data = {
-      requestor: user.userId,
-      company: company.code,
-      listDate: new Date(ahora).toLocaleDateString("pt"),
+      // requestor: user.userId,
+      // company: company.code,
       details: elementos,
     };
-    console.log(data);
-    // prequestCreator(data);
+
+    PurchaseRequestCreator(data);
   };
 
   return (

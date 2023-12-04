@@ -13,7 +13,7 @@ export const PRDetailsList = ({
   setElementos,
 }: DetailsListProps) => {
   const eliminator = (id: string | undefined, i: number) => {
-    setElementos(elementos.filter((item) => item.element !== id));
+    setElementos(elementos.filter((item) => item.element?.elementId !== id));
     elementos.splice(i, 1);
   };
 
@@ -25,7 +25,7 @@ export const PRDetailsList = ({
             <div key={index} className="data-row">
               <div className="detail-wrapper-dt">
                 <div className="individual-detail element-dt">
-                  <div className="show">{item.element}</div>
+                  <div className="show">{item.element?.element}</div>
                 </div>
                 {/* <div className="individual-detail type-dt">
                   <div className="show">{item.elementType}</div>
@@ -41,7 +41,7 @@ export const PRDetailsList = ({
                 <Button
                   variant="yes"
                   type="button"
-                  onClick={() => eliminator(item.element, index)}
+                  onClick={() => eliminator(item.element?.elementId, index)}
                 >
                   Eliminar
                 </Button>
@@ -49,7 +49,7 @@ export const PRDetailsList = ({
               <div className="detail-action">
                 <div
                   className="detail-btn"
-                  onClick={() => eliminator(item.element, index)}
+                  onClick={() => eliminator(item.element?.elementId, index)}
                 >
                   <FaTrash />
                 </div>

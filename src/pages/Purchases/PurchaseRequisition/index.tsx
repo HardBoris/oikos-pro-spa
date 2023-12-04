@@ -10,6 +10,8 @@ import { PRDetails } from "./PRDetails";
 import { PRDetailsList } from "./PRDetailsList";
 import Modal from "../../../components/Modal";
 import { ElementToBuy } from "../../../context/ElementContext";
+import { Button } from "../../../components/Button";
+import { RequisitionsList } from "./RequisitionsList";
 // import { usePR } from "../../../context/PurchaseRequisitionContext";
 
 export const PurchaseRequisition = () => {
@@ -46,7 +48,11 @@ export const PurchaseRequisition = () => {
     <>
       <section>
         <div className="purchase-info">
-          <PRInfo /* setThisPurchase={setThisPurchase} setShow={setShow} */ />
+          {/* <div className="banner"> */}
+          <Button onClick={() => handlePrint()}>nuevo</Button>
+          {/* </div> */}
+          <RequisitionsList />
+          {/* <PRInfo /> */}
         </div>
         {/* <div className="purchase-detail">
           <PRDetails elementos={elementos} setElementos={setElementos} />
@@ -65,7 +71,9 @@ export const PurchaseRequisition = () => {
         {/* </div> */}
       </section>
       <Modal isOpen={isPrint} setIsOpen={handlePrint}>
-        <div className="envoltura">Modal</div>
+        <div id="purchase_request_info">
+          <PRInfo />
+        </div>
       </Modal>
     </>
   );

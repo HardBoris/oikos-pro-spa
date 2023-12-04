@@ -1,15 +1,16 @@
 import { ReactNode, createContext, useContext } from "react";
 import { localApi as api } from "../services/api";
 import { Detail } from "./DetailContext";
+import { ElementToBuy } from "./ElementContext";
 
 interface PurchaseRequestProviderProps {
   children: ReactNode;
 }
 
 export interface PurchaseRequest {
-  prequestId?: string;
-  listDate: string;
-  details: Detail[];
+  purchaseRequestId?: string;
+  purchaseRequestDate?: string;
+  details: ElementToBuy[];
 }
 
 interface PurchaseRequestContextData {

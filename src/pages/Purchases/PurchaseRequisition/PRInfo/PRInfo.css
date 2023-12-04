@@ -1,6 +1,7 @@
 .form-wrapper-purchase {
   width: 90%;
   height: auto;
+  color: black;
 }
 
 .shoppinglist-wrapper {
@@ -27,6 +28,7 @@
 @media (min-width: 426px) {
   .form-wrapper-purchase {
     height: 90%;
+    margin: auto;
   }
 
   .shoppinglist-wrapper {

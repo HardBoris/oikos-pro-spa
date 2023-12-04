@@ -24,4 +24,6 @@
   border-radius: 0.5rem;
   outline: none;
   border: none;
+  background-color: var(--secondary-lighter-25);
+  border-bottom: 1px solid var(--primary-dark);
 }

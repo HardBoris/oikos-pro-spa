@@ -1,22 +1,3 @@
-/* .Modal {
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  color: #333;
-  border-radius: auto;
-  width: auto;
-  border: none;
-  padding: 0;
-} */
-
-/* .Overlay {
-  background-color: var(--modal-overlay);
-} */
-
 .modal-overlay {
   z-index: 9999;
   width: 100vw;
@@ -32,8 +13,6 @@
 .modal-box {
   display: block;
   background: var(--primary-ligth);
-  /* width: 70%; */
-  /* height: 70%; */
   padding: 1rem;
   border-radius: 1rem;
 }

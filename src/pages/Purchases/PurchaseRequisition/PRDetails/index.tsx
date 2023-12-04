@@ -37,7 +37,6 @@ export const PRDetails = ({ elementos, setElementos }: DetailsProps) => {
 
   const sender = (info: ElementToBuy) => {
     const { element } = info;
-    console.log(element);
 
     const existe = stock.filter((item) => item.elementId === element)[0];
 
@@ -55,7 +54,7 @@ export const PRDetails = ({ elementos, setElementos }: DetailsProps) => {
           ...elementos,
           {
             ...info,
-            element: existe?.elementId,
+            element: existe,
           },
         ]);
   };
@@ -63,7 +62,7 @@ export const PRDetails = ({ elementos, setElementos }: DetailsProps) => {
   useEffect(() => {
     if (formState.isSubmitSuccessful) {
       reset({
-        element: "",
+        element: {},
         quantity: "",
         measurement: "",
       });
