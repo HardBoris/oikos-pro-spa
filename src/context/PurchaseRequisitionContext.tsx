@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useContext } from "react";
+import {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { localApi as api } from "../services/api";
 import { Detail } from "./DetailContext";
 import { ElementToBuy } from "./ElementContext";
@@ -14,6 +20,7 @@ export interface PurchaseRequest {
 }
 
 interface PurchaseRequestContextData {
+  solicitudes: PurchaseRequest[];
   PurchaseRequestList: () => void;
   PurchaseRequestCreator: (data: PurchaseRequest) => void;
 }
@@ -27,7 +34,7 @@ const usePurchaseRequest = () => useContext(PurchaseRequestContext);
 const PurchaseRequestProvider = ({
   children,
 }: PurchaseRequestProviderProps) => {
-  // const [solicitud, setSolicitud] = useState()
+  const [solicitudes, setSolicitudes] = useState<PurchaseRequest[]>([]);
   const PurchaseRequestList = async () => {
     await api
       .get(
@@ -36,11 +43,15 @@ const PurchaseRequestProvider = ({
       } */
       )
       .then((response) => {
-        // setSolicitud(response.data);
-        console.log(response.data);
+        setSolicitudes(response.data);
+        // console.log(response.data);
       })
       .catch((error) => console.log(error));
   };
+
+  useEffect(() => {
+    PurchaseRequestList();
+  }, []);
 
   /* const prequestLoader = async () => {
     await api
@@ -84,6 +95,7 @@ const PurchaseRequestProvider = ({
   return (
     <PurchaseRequestContext.Provider
       value={{
+        solicitudes,
         PurchaseRequestList,
         PurchaseRequestCreator,
       }}
