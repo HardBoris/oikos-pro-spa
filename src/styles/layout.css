@@ -24,24 +24,24 @@ footer {
   font-size: calc(8px + 1vmin);
 }
 
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
   width: 16px;
-}
+} */
 
-*::-webkit-scrollbar-track {
+/* *::-webkit-scrollbar-track {
   background: var(--primary-light);
   border-radius: 8px;
-}
+} */
 
-*::-webkit-scrollbar-thumb {
+/* *::-webkit-scrollbar-thumb {
   background: var(--primary);
   border-radius: 8px;
   border: 3px solid var(--primary-light);
-}
+} */
 
-*::-webkit-scrollbar-thumb:hover {
+/* *::-webkit-scrollbar-thumb:hover {
   background: var(--secondary);
-}
+} */
 
 input:-webkit-autofill {
   -webkit-text-fill-color: var(--primary-dark);

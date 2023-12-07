@@ -1,5 +1,33 @@
-.faja-de-titulos {
-  width: 90%;
-  height: 80px;
-  background-color: var(--primary);
+@media (min-width: 421px) {
+  .faja-de-titulos {
+    width: 90%;
+    height: 80px;
+    border: 1px solid red;
+    background-color: var(--primary);
+    color: var(--primary-lighter-25);
+  }
+
+  .titulos {
+    width: 95%;
+    height: 100%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tabla-de-solicitudes {
+    width: 90%;
+    height: 400px;
+    overflow-y: auto;
+  }
+
+  .request-row {
+    width: 96%;
+    height: 80px;
+    display: flex;
+    border: 1px solid red;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
