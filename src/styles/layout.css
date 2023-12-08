@@ -43,11 +43,11 @@ footer {
   background: var(--secondary);
 } */
 
-input:-webkit-autofill {
+/* input:-webkit-autofill {
   -webkit-text-fill-color: var(--primary-dark);
   -webkit-box-shadow: 0 0 0px 1000px var(--primary-light) inset;
   transition: background-color 5000s ease-in-out 0s;
-}
+} */
 
 @media (min-width: 769px) {
   header,
