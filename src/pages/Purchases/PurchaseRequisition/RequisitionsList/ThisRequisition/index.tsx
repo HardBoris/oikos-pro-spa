@@ -33,19 +33,19 @@ export const ThisRequisition = ({
   console.log(solicitud);
 
   return (
-    <div>
-      <div>
+    <>
+      <div className="titulos">
         <div>número: {solicitud.purchaseRequestId}</div>
         <div>fecha: {solicitud.purchaseRequestDate}</div>
       </div>
       {solicitud.details &&
-        solicitud.details.map((item) => (
-          <div>
+        solicitud.details.map((item, index) => (
+          <div key={index} className="request-row">
             <div>{item.element?.element}</div>
             <div>{item.quantity}</div>
             <div>{item.measurement}</div>
           </div>
         ))}
-    </div>
+    </>
   );
 };

@@ -52,7 +52,7 @@ export const RequisitionsList = () => {
           ))}
       </div>
       <Modal isOpen={abrir} setIsOpen={handleModal}>
-        <div>
+        <div className="purchase_request_info">
           <ThisRequisition
             solicitud={solicitud}
             estaSolicitud={estaSolicitud}
