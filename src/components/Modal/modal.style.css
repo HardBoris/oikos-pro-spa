@@ -12,7 +12,7 @@
 
 .modal-box {
   display: block;
-  background: var(--primary-ligth);
+  background: var(--primary-light);
   padding: 1rem;
   border-radius: 1rem;
 }

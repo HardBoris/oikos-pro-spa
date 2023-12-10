@@ -11,7 +11,7 @@ export const Purchases = () => {
   return (
     <>
       <Helmet>
-        <title>Aventura | Compras</title>
+        <title>Oikos | Compras</title>
       </Helmet>
       <div className="purchase">
         <div className="purchase_header">
@@ -36,10 +36,9 @@ export const Purchases = () => {
             Solicitações de Compra
           </Link>
           <Link
-            to={`/${company.companyId}/purchases/newpurchase`}
+            to={`/test/purchases/newpurchaseorder`}
             className={
-              location.pathname ===
-              `/${company.companyId}/purchases/newpurchase`
+              location.pathname === `/test/purchases/newpurchaseorder`
                 ? "tab activated"
                 : "tab"
             }

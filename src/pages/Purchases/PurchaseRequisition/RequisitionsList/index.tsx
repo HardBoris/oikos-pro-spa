@@ -7,6 +7,7 @@ import {
 import "./RequisitionsList.style.css";
 import { PRInfo } from "../PRInfo";
 import { ThisRequisition } from "./ThisRequisition";
+import { Container } from "../../../../components/Container";
 
 export const RequisitionsList = () => {
   const { solicitudes } = usePurchaseRequest();
@@ -38,27 +39,25 @@ export const RequisitionsList = () => {
         </div>
         {solicitudes &&
           solicitudes.map((item, index) => (
-            <div
-              key={index}
-              className="request-row"
-              onClick={() =>
-                estaSolicitud(solicitudes[index].purchaseRequestId)
-              }
-            >
-              <div>{item.purchaseRequestId}</div>
-              <div>{item.purchaseRequestDate}</div>
-              <div>converter</div>
-            </div>
+            <details>
+              <summary
+                key={index}
+                className="request-row"
+                onClick={() =>
+                  estaSolicitud(solicitudes[index].purchaseRequestId)
+                }
+              >
+                <div>{item.purchaseRequestId}</div>
+                <div>{item.purchaseRequestDate}</div>
+                <div>converter</div>
+              </summary>
+              <ThisRequisition solicitud={solicitud} />
+            </details>
           ))}
       </div>
-      <Modal isOpen={abrir} setIsOpen={handleModal}>
-        <div className="purchase_request_info">
-          <ThisRequisition
-            solicitud={solicitud}
-            estaSolicitud={estaSolicitud}
-          />
-        </div>
-      </Modal>
+      {/* <Modal isOpen={abrir} setIsOpen={handleModal}>
+        <ThisRequisition solicitud={solicitud} />
+      </Modal> */}
     </>
   );
 };

@@ -71,7 +71,7 @@ export const PurchaseRequisition = () => {
         {/* </div> */}
       </section>
       <Modal isOpen={isPrint} setIsOpen={handlePrint}>
-        <div id="purchase_request_info">
+        <div className="purchase_request_info">
           <PRInfo />
         </div>
       </Modal>
