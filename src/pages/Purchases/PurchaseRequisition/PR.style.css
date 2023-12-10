@@ -1,7 +1,7 @@
 .purchase-info,
 .purchase-detail {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   overflow: hidden;
 }
 
@@ -21,9 +21,11 @@
 
   .purchase-info {
     width: 90%;
+    height: 80px;
     display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
+    /* border: 1px solid red; */
+    /* flex-direction: column; */
+    justify-content: flex-start;
     align-items: center;
   }
 
@@ -31,11 +33,11 @@
     width: 1200px;
   }
 
-  .btn {
+  /* .btn {
     height: 150px;
     flex-direction: row;
     justify-content: flex-start;
-  }
+  } */
 
   .purchase-info button {
     width: 200px;

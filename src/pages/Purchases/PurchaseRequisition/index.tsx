@@ -48,12 +48,9 @@ export const PurchaseRequisition = () => {
     <>
       <section>
         <div className="purchase-info">
-          {/* <div className="banner"> */}
           <Button onClick={() => handlePrint()}>nuevo</Button>
-          {/* </div> */}
-          <RequisitionsList />
-          {/* <PRInfo /> */}
         </div>
+        <RequisitionsList />
         {/* <div className="purchase-detail">
           <PRDetails elementos={elementos} setElementos={setElementos} />
         </div>
