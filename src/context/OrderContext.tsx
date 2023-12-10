@@ -24,7 +24,9 @@ export interface Order {
 
 interface OrderContextData {
   orders: Order[];
+  purchaseOrders: Order[];
   OrdersList: () => void;
+  PurchaseOrdersList: () => void;
 }
 
 export const OrderContext = createContext<OrderContextData>(
@@ -35,6 +37,7 @@ const useOrder = () => useContext(OrderContext);
 
 const OrderProvider = ({ children }: OrderProviderProps) => {
   const [orders, setOrders] = useState<Order[]>([]);
+  const [purchaseOrders, setPurchaseOrders] = useState<Order[]>([]);
 
   const OrdersList = async () => {
     await api
@@ -53,15 +56,35 @@ const OrderProvider = ({ children }: OrderProviderProps) => {
       });
   };
 
+  const PurchaseOrdersList = async () => {
+    await api
+      .get(
+        `/orders/purchase-orders` /* , {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      } */
+      )
+      .then((response) => {
+        setPurchaseOrders(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
     OrdersList();
+    PurchaseOrdersList();
   }, []);
 
   return (
     <OrderContext.Provider
       value={{
         orders,
+        purchaseOrders,
         OrdersList,
+        PurchaseOrdersList,
       }}
     >
       {children}

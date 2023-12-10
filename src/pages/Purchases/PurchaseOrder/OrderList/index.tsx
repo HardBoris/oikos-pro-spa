@@ -2,15 +2,15 @@ import { useOrder } from "../../../../context/OrderContext";
 import "./OrderList.style.css";
 
 export const PurchaseOrderList = () => {
-  const { orders } = useOrder();
+  const { purchaseOrders } = useOrder();
 
-  console.log(orders);
+  console.log(purchaseOrders);
 
   return (
     <div className="tabla-de-ordenes">
       <div className="faja-de-titulos">Lista de Ordenes de Compra</div>
-      {orders &&
-        orders.map((item, index) => (
+      {purchaseOrders &&
+        purchaseOrders.map((item, index) => (
           <div key={index} className="request-row">
             <div>{item.orderId}</div>
           </div>
