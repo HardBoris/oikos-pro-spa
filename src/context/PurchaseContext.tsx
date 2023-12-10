@@ -98,7 +98,7 @@ const PurchaseProvider = ({ children }: PurchaseProviderProps) => {
 
   const ShoppingList = async () => {
     await api
-      .get(`/${company.companyId}/purchases`, {
+      .get(`/orders/purchase-orders`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -110,6 +110,10 @@ const PurchaseProvider = ({ children }: PurchaseProviderProps) => {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    ShoppingList();
+  }, []);
 
   const Shopping = async (purchaseId: string) => {
     await api

@@ -2,12 +2,15 @@ import { useState } from "react";
 import { Button } from "../../../components/Button";
 import Modal from "../../../components/Modal";
 import { PurchaseOrderList } from "./OrderList";
+import { usePurchase } from "../../../context/PurchaseContext";
 
 export const PurchaseOrder = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const handleModal = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <div>
       <section>

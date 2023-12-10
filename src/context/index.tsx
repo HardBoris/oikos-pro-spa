@@ -9,27 +9,18 @@ import { PartnerProvider } from "./PartnerContext";
 import { DetailProvider } from "./DetailContext";
 import { ElementProvider } from "./ElementContext";
 import { PurchaseRequestProvider } from "./PurchaseRequisitionContext";
+import { OrderProvider } from "./OrderContext";
 
 interface AppProviderProps {
   children: ReactNode;
 }
 
 export const AppProvider = ({ children }: AppProviderProps) => (
-  <CompanyProvider>
-    <UserProvider>
-      <PartnerProvider>
-        <PurchaseRequestProvider>
-          <PurchaseProvider>
-            <ElementProvider>
-              <RequisitionProvider>
-                <EntryProvider>
-                  <MoveProvider>{children}</MoveProvider>
-                </EntryProvider>
-              </RequisitionProvider>
-            </ElementProvider>
-          </PurchaseProvider>
-        </PurchaseRequestProvider>
-      </PartnerProvider>
-    </UserProvider>
-  </CompanyProvider>
+  <PurchaseRequestProvider>
+    <OrderProvider>
+      <ElementProvider>
+        <RequisitionProvider>{children}</RequisitionProvider>
+      </ElementProvider>
+    </OrderProvider>
+  </PurchaseRequestProvider>
 );
