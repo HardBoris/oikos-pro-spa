@@ -3,6 +3,8 @@ import { Button } from "../../../components/Button";
 import Modal from "../../../components/Modal";
 import { PurchaseOrderList } from "./OrderList";
 import { usePurchase } from "../../../context/PurchaseContext";
+import { OrderInfo } from "./OrderInfo";
+import { Order } from "./Order";
 
 export const PurchaseOrder = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +22,7 @@ export const PurchaseOrder = () => {
         <PurchaseOrderList />
       </section>
       <Modal isOpen={isOpen} setIsOpen={handleModal}>
-        Hola
+        <Order />
       </Modal>
     </div>
   );

@@ -29,6 +29,29 @@ interface OrderContextData {
   PurchaseOrdersList: () => void;
 }
 
+export enum OrderStatus {
+  APPROVED = "Aprovada",
+  PENDING = "Pendente",
+  DELAYED = "Atrasada",
+  DENIED = "Reprovada",
+  RECEIVED = "Recebida",
+  DELIVERED = "Entregue",
+  DISPATCHED = "Enviada",
+  RETURNED = "Devolvida",
+  REJECTED = "Rejeitada",
+}
+
+export enum LogisticMode {
+  DELIVERY = "Entrega",
+  RECEIVE = "Retirada",
+}
+
+export enum WayToPay {
+  BILLED = "Faturado",
+  CARD = "Cartão",
+  CASH = "Dinheiro",
+}
+
 export const OrderContext = createContext<OrderContextData>(
   {} as OrderContextData
 );
