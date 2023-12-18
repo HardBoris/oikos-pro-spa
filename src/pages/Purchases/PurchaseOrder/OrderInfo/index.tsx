@@ -9,7 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useState } from "react";
 import { Select } from "../../../../components/Select";
-import { OrderStatus } from "../../../../context/OrderContext";
+import { OrderStatus, useOrder } from "../../../../context/OrderContext";
 import { SelectEnum } from "../../../../components/SelectEnum";
 
 const OrderInfoSchema = yup.object().shape({
@@ -45,9 +45,7 @@ interface Prueba {
 
 export const OrderInfo =
   (/* { informacion, setInformacion }: OrderInfoProps */) => {
-    const orderStatus = Object.values(OrderStatus);
-
-    console.log(orderStatus);
+    const { logisticsList, statusList } = useOrder();
 
     const {
       // formState,
@@ -92,34 +90,21 @@ export const OrderInfo =
                 options={stock}
               /> */}
               </div>
+
               <div className="individual-detail qty-dt">
-                <BGInput
-                  register={register}
-                  name="logistic"
-                  error={errors.logistic?.message}
+                <SelectEnum
                   label="Logistica"
-                  placeholder="Logistica"
+                  name="logisticMode"
+                  register={register}
+                  options={logisticsList}
                 />
-                {/* <Select
-                label="Elemento"
-                name="element"
-                register={register}
-                options={stock}
-              /> */}
               </div>
               <div className="individual-detail qty-dt">
-                {/* <BGInput
-                  register={register}
-                  name="status"
-                  error={errors.status?.message}
-                  label="Status"
-                  placeholder="Status"
-                /> */}
                 <SelectEnum
                   label="Status"
                   name="status"
                   register={register}
-                  options={orderStatus}
+                  options={statusList}
                 />
               </div>
               <div className="individual-detail qty-dt">

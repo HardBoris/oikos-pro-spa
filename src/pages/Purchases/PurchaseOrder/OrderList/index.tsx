@@ -4,7 +4,7 @@ import "./OrderList.style.css";
 export const PurchaseOrderList = () => {
   const { purchaseOrders } = useOrder();
 
-  console.log(purchaseOrders);
+  // console.log(purchaseOrders);
 
   return (
     <div className="tabla-de-ordenes">

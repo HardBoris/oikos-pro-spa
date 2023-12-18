@@ -25,8 +25,12 @@ export interface Order {
 interface OrderContextData {
   orders: Order[];
   purchaseOrders: Order[];
+  logisticsList: string[];
+  statusList: string[];
   OrdersList: () => void;
   PurchaseOrdersList: () => void;
+  LogisticsList: () => void;
+  StatusList: () => void;
 }
 
 export enum OrderStatus {
@@ -61,6 +65,8 @@ const useOrder = () => useContext(OrderContext);
 const OrderProvider = ({ children }: OrderProviderProps) => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [purchaseOrders, setPurchaseOrders] = useState<Order[]>([]);
+  const [logisticsList, setLogisticsList] = useState([]);
+  const [statusList, setStatusList] = useState([]);
 
   const OrdersList = async () => {
     await api
@@ -96,9 +102,25 @@ const OrderProvider = ({ children }: OrderProviderProps) => {
       });
   };
 
+  const LogisticsList = () => {
+    api
+      .get("orders/logistics-list")
+      .then((response) => setLogisticsList(response.data))
+      .catch((error) => console.log(error));
+  };
+
+  const StatusList = () => {
+    api
+      .get("orders/status-list")
+      .then((response) => setStatusList(response.data))
+      .catch((error) => console.log(error));
+  };
+
   useEffect(() => {
     OrdersList();
     PurchaseOrdersList();
+    LogisticsList();
+    StatusList();
   }, []);
 
   return (
@@ -106,8 +128,12 @@ const OrderProvider = ({ children }: OrderProviderProps) => {
       value={{
         orders,
         purchaseOrders,
+        logisticsList,
+        statusList,
         OrdersList,
         PurchaseOrdersList,
+        LogisticsList,
+        StatusList,
       }}
     >
       {children}

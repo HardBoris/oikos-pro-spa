@@ -115,6 +115,8 @@ const PurchaseProvider = ({ children }: PurchaseProviderProps) => {
     ShoppingList();
   }, []);
 
+  console.log(purchases);
+
   const Shopping = async (purchaseId: string) => {
     await api
       .get(`/${company.companyId}/purchases/${purchaseId}`, {
