@@ -4,8 +4,9 @@ import {
   useRequisition,
 } from "../../../context/RequisitionContext";
 import { Formulario } from "../../../components/Form";
-import { Modificado } from "../../../components/Modificado";
+// import { BGInput } from "../../../components/BGInput";
 import { Button } from "../../../components/Button";
+import { BGInput } from "../../../components/BG Input";
 
 const resolver: Resolver<Requisicion> = async (values) => {
   return {
@@ -38,26 +39,26 @@ export const EditForm = ({
     <Formulario clase="" onSubmit={handleSubmit(editado)}>
       <div className="horizontal-fields">
         <div className="individual-field">
-          <Modificado
+          <BGInput
             name="requestId"
             value={requisicion.requestId}
             register={register}
           />
         </div>
         <div className="individual-field">
-          <Modificado name="requestDate" value={fecha} register={register} />
+          <BGInput name="requestDate" value={fecha} register={register} />
         </div>
       </div>
       <div className="horizontal-fields">
         <div className="individual-field">
-          <Modificado
+          <BGInput
             name="requestTarget"
             defaultValue={requisicion.service.order}
             register={register}
           />
         </div>
         <div className="individual-field">
-          <Modificado
+          <BGInput
             name="requestor"
             defaultValue={requisicion.requestor.name}
             register={register}

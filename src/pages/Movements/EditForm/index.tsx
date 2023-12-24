@@ -1,8 +1,9 @@
 import { Resolver, useForm } from "react-hook-form";
 import { Formulario } from "../../../components/Form";
-import { Modificado } from "../../../components/Modificado";
+// import { BGInput } from "../../../components/BGInput";
 import { Button } from "../../../components/Button";
 import { Movement, useMove } from "../../../context/MoveContext";
+import { BGInput } from "../../../components/BG Input";
 
 const resolver: Resolver<Movement> = async (values) => {
   return {
@@ -32,17 +33,17 @@ export const MoveEditForm = ({ handleEditor, move }: MoveEditFormProps) => {
     <Formulario clase="" onSubmit={handleSubmit(editado)}>
       <div className="horizontal-fields">
         <div className="individual-field">
-          <Modificado name="moveId" value={move.moveId} register={register} />
+          <BGInput name="moveId" value={move.moveId} register={register} />
         </div>
         <div className="individual-field">
-          <Modificado
+          <BGInput
             name="moveElement"
             value={move.moveElement}
             register={register}
           />
         </div>
         <div className="individual-field">
-          <Modificado
+          <BGInput
             name="elementType"
             value={move.elementType}
             register={register}
@@ -51,28 +52,20 @@ export const MoveEditForm = ({ handleEditor, move }: MoveEditFormProps) => {
       </div>
       <div className="horizontal-fields">
         <div className="individual-field">
-          <Modificado
-            name="moveType"
-            value={move.moveType}
-            register={register}
-          />
+          <BGInput name="moveType" value={move.moveType} register={register} />
         </div>
         <div className="individual-field">
-          <Modificado
+          <BGInput
             name="moveQuantity"
             defaultValue={move.moveQuantity}
             register={register}
           />
         </div>
         <div className="individual-field">
-          <Modificado
-            name="moveUnit"
-            value={move.moveUnit}
-            register={register}
-          />
+          <BGInput name="moveUnit" value={move.moveUnit} register={register} />
         </div>
         <div className="individual-field">
-          <Modificado
+          <BGInput
             name="requisitionId"
             value={move.requisition?.requestId}
             register={register}

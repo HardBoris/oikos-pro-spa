@@ -2,10 +2,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Formulario } from "../../../../components/Form";
-import { Modificado } from "../../../../components/Modificado";
+// import { BGInput } from "../../../../components/BGInput";
 import { Button } from "../../../../components/Button";
 import { ToolEntry, ToolEntryInfo } from "..";
 import "./style.css";
+import { BGInput } from "../../../../components/BG Input";
 
 const toolEntrySchema = yup.object().shape({
   entryDate: yup.string().required(),
@@ -40,7 +41,7 @@ export const InfoToolEntry1 = ({
       <Formulario clase="" onSubmit={handleSubmit(sender)}>
         <div className="input-horizontal-wrapper">
           <div className="input-individual">
-            <Modificado
+            <BGInput
               register={register}
               name="entryDate"
               error={errors.entryDate?.message}
@@ -49,7 +50,7 @@ export const InfoToolEntry1 = ({
             />
           </div>
           <div className="input-individual">
-            <Modificado
+            <BGInput
               register={register}
               name="purchase"
               error={errors.purchase?.message}
@@ -59,7 +60,7 @@ export const InfoToolEntry1 = ({
           </div>
         </div>
         <div className="input-individual">
-          <Modificado
+          <BGInput
             register={register}
             name="responsivel"
             error={errors.responsivel?.message}

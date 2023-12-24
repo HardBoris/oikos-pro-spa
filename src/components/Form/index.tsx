@@ -5,6 +5,7 @@ interface FormularioProps {
   children: ReactNode;
   onSubmit?: () => void;
   clase?: string;
+  orientacion?: string;
 }
 
 export const Formulario = ({ children, clase, ...rest }: FormularioProps) => (

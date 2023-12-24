@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { Formulario } from "../../../../components/Form";
-import { Modificado } from "../../../../components/Modificado";
+// import { Modificado } from "../../../../components/Modificado";
 import { Button } from "../../../../components/Button";
 import { Requisicion } from "../../../../context/RequisitionContext";
 import "./style.css";

@@ -1,11 +1,12 @@
 import { Resolver, useForm } from "react-hook-form";
 import { Requisicion } from "../../../context/RequisitionContext";
 import { Formulario } from "../../../components/Form";
-import { Modificado } from "../../../components/Modificado";
+// import { BGInput } from "../../../components/BGInput";
 import { Button } from "../../../components/Button";
 import { Movement, useMove } from "../../../context/MoveContext";
 // import { useState } from "react";
 import "./Add.style.css";
+import { BGInput } from "../../../components/BG Input";
 
 const resolver: Resolver<Movement> = async (values) => {
   return {
@@ -42,14 +43,14 @@ export const AddForm = ({ handleAdd, requested }: MoveAddFormProps) => {
       <div className="modal-add-horizontal">
         <div className="modal-add-fields">
           <div className="add-element">
-            <Modificado
+            <BGInput
               name="moveElement"
               register={register}
               placeholder="Descrição do Elemento"
             />
           </div>
           <div className="add-element-type">
-            <Modificado
+            <BGInput
               name="elementType"
               register={register}
               placeholder="Midia, Material"
@@ -58,28 +59,28 @@ export const AddForm = ({ handleAdd, requested }: MoveAddFormProps) => {
         </div>
         <div className="modal-add-fields">
           <div className="add-field">
-            <Modificado
+            <BGInput
               name="moveQuantity"
               register={register}
               placeholder="Quantidade"
             />
           </div>
           <div className="add-field">
-            <Modificado
+            <BGInput
               name="moveUnit"
               register={register}
               placeholder="Unidade"
             />
           </div>
           <div className="add-field">
-            <Modificado
+            <BGInput
               name="requisitionId"
               value={requested.requestId}
               register={register}
             />
           </div>
           <div className="add-field">
-            <Modificado name="moveType" value="saída" register={register} />
+            <BGInput name="moveType" value="saída" register={register} />
           </div>
         </div>
       </div>
