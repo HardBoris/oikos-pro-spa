@@ -44,14 +44,14 @@
   margin-top: 30px;
 }
 
-input,
+/* input,
 .input-label {
   font-size: 1rem;
-}
+} */
 
-input {
+/* input {
   border-bottom: 1px solid var(--primary-75);
-}
+} */
 
 .botonera-dt {
   width: 100%;
@@ -120,10 +120,10 @@ input {
     font-size: 1.2rem;
   }
 
-  input,
+  /* input,
   .input-label {
     font-size: 1rem;
-  }
+  } */
 
   .botonera-dt {
     display: none;

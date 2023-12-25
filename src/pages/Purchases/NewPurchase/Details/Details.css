@@ -21,14 +21,14 @@
   align-items: center;
 }
 
-input,
+/* input,
 .input-label {
   font-size: 1rem;
-}
+} */
 
-input {
+/* input {
   border-bottom: 1px solid var(--primary-75);
-}
+} */
 
 .botonera-dt {
   width: 100%;
@@ -67,10 +67,10 @@ input {
     width: 90%;
   }
 
-  input,
+  /* input,
   .input-label {
     font-size: 1rem;
-  }
+  } */
 }
 
 @media (min-width: 769px) {

@@ -8,6 +8,7 @@ import { useOrder } from "../../../../context/OrderContext";
 import { SelectEnum } from "../../../../components/SelectEnum";
 import "./style.css";
 import { BGTextArea } from "../../../../components/TextArea";
+import { Button } from "../../../../components/Button";
 
 const OrderInfoSchema = yup.object().shape({
   partner: yup.string().required(),
@@ -57,7 +58,7 @@ export const OrderInfo = () => {
       <Formulario onSubmit={handleSubmit(sender)} clase="maggie">
         <div className="field-column">
           <div className="field-row">
-            <div className="individual-detail element-dt">
+            <div className="field-50 field-left">
               <BGInput
                 register={register}
                 name="partner"
@@ -66,7 +67,7 @@ export const OrderInfo = () => {
                 placeholder="Proveedor"
               />
             </div>
-            <div className="individual-detail qty-dt">
+            <div className="field-20 field-center">
               <BGInput
                 register={register}
                 name="way_to_pay"
@@ -75,18 +76,18 @@ export const OrderInfo = () => {
                 placeholder="Forma de Pagamento"
               />
             </div>
-            <div className="individual-detail qty-dt">
+            <div className="field-20 field-right">
               <BGInput
                 register={register}
                 name="installments"
                 error={errors.installments?.message}
-                label="Condiciones de Pagamento"
+                label="Condiciones"
                 placeholder="Condiciones de Pagamento"
               />
             </div>
           </div>
           <div className="field-row">
-            <div className="individual-detail qty-dt">
+            <div className="field-30 field-left">
               <SelectEnum
                 label="Logistica"
                 name="logisticMode"
@@ -94,7 +95,7 @@ export const OrderInfo = () => {
                 options={logisticsList}
               />
             </div>
-            <div className="individual-detail qty-dt">
+            <div className="field-30 field-center">
               <SelectEnum
                 label="Status"
                 name="status"
@@ -102,7 +103,7 @@ export const OrderInfo = () => {
                 options={statusList}
               />
             </div>
-            <div className="individual-detail qty-dt">
+            <div className="field-30 field-right">
               <BGInput
                 register={register}
                 name="freight"
@@ -113,7 +114,7 @@ export const OrderInfo = () => {
             </div>
           </div>
           <div className="field-row">
-            <div className="individual-detail qty-dt">
+            <div className="field-75 field-left">
               <BGTextArea
                 register={register}
                 name="comments"
@@ -121,10 +122,11 @@ export const OrderInfo = () => {
                 placeholder="Comentarios"
               />
             </div>
-            <div className="detail-action">
-              <button className="detail-btn" type="submit">
-                <FaPlus />
-              </button>
+            <div className="btn_confirm">
+              <Button type="submit">
+                Confirmar
+                {/* <FaPlus /> */}
+              </Button>
             </div>
           </div>
         </div>

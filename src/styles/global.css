@@ -6,6 +6,7 @@ aside,
 section,
 form,
 input,
+textarea,
 div,
 h1,
 h2,
@@ -72,6 +73,7 @@ body {
 }
 
 .field-column {
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -79,7 +81,84 @@ body {
 }
 
 .field-row {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.field-10 {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.field-20 {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.field-30 {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.field-40 {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.field-45 {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.field-50 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.field-60 {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.field-75 {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.field-left {
+  justify-content: flex-start;
+}
+
+.field-center {
+  justify-content: center;
+}
+
+.field-right {
+  justify-content: flex-end;
 }

@@ -17,17 +17,19 @@ export const BGTextArea = ({
   ...rest
 }: TextAreaProps) => {
   return (
-    <div className="input-form">
-      {label && <div className="input-label">{label}</div>}
+    <div className="textarea-form">
+      {label && <div className="textarea-label">{label}</div>}
       {/* <div className={!!error ? "input-field borded" : "input-field"}> */}
-      <input
+      <textarea
         {...(register && { ...register(name) })}
         rows="5"
         columns="50"
+        placeholder={placeholder}
         {...rest}
         // className={!!error ? "input-password error" : "input-password"}
         // placeholder={!!error ? `${error}` : `${placeholder}`}
       />
+      {/* </textarea> */}
       {/* </div> */}
     </div>
   );
