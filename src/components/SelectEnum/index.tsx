@@ -16,6 +16,7 @@ export const SelectEnum = ({
   error,
   name,
   register,
+  placeholder,
   options,
   ...rest
 }: SelectProps) => {

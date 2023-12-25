@@ -9,6 +9,8 @@ import { SelectEnum } from "../../../../components/SelectEnum";
 import "./style.css";
 import { BGTextArea } from "../../../../components/TextArea";
 import { Button } from "../../../../components/Button";
+import { useState } from "react";
+import { Prueba } from "../Order";
 
 const OrderInfoSchema = yup.object().shape({
   partner: yup.string().required(),
@@ -16,27 +18,31 @@ const OrderInfoSchema = yup.object().shape({
   installments: yup.string().notRequired(),
   logistic: yup.string().notRequired(),
   status: yup.string().notRequired(),
-  freight: yup.number().notRequired(),
+  freight: yup
+    .number()
+    .transform((val) => (isNaN(val) ? 0 : val))
+    .notRequired(),
   comments: yup.string().notRequired(),
 });
 
-/* interface OrderInfoProps {
-  informacion: string;
-  setInformacion: (data: string) => void;
-} */
+interface OrderInfoProps {
+  informacion: Prueba;
+  setInformacion: (data: Prueba) => void;
+}
 
-interface Prueba {
+/* interface Prueba {
   partner: string;
   way_to_pay: string;
   installments: string;
   logistic: string;
   status: string;
-  freight: number;
+  freight?: number;
   comments: string;
-}
+} */
 
-export const OrderInfo = () => {
-  const { logisticsList, statusList } = useOrder();
+export const OrderInfo = ({ informacion, setInformacion }: OrderInfoProps) => {
+  const { logisticsList, statusList, waysList } = useOrder();
+  // const [informacion, setInformacion] = useState<Prueba>({} as Prueba);
 
   const {
     // formState,
@@ -49,7 +55,8 @@ export const OrderInfo = () => {
   });
 
   const sender = (data: Prueba) => {
-    console.log(data);
+    setInformacion(data);
+    console.log(informacion);
   };
 
   return (
@@ -68,12 +75,11 @@ export const OrderInfo = () => {
               />
             </div>
             <div className="field-20 field-center">
-              <BGInput
-                register={register}
-                name="way_to_pay"
-                error={errors.way_to_pay?.message}
+              <SelectEnum
                 label="Forma de Pagamento"
-                placeholder="Forma de Pagamento"
+                name="way_to_pay"
+                register={register}
+                options={waysList}
               />
             </div>
             <div className="field-20 field-right">
@@ -109,7 +115,7 @@ export const OrderInfo = () => {
                 name="freight"
                 error={errors.freight?.message}
                 label="Frete"
-                placeholder="Frete"
+                placeholder="0,00"
               />
             </div>
           </div>

@@ -27,10 +27,12 @@ interface OrderContextData {
   purchaseOrders: Order[];
   logisticsList: string[];
   statusList: string[];
+  waysList: string[];
   OrdersList: () => void;
   PurchaseOrdersList: () => void;
   LogisticsList: () => void;
   StatusList: () => void;
+  WaysList: () => void;
 }
 
 export enum OrderStatus {
@@ -67,6 +69,7 @@ const OrderProvider = ({ children }: OrderProviderProps) => {
   const [purchaseOrders, setPurchaseOrders] = useState<Order[]>([]);
   const [logisticsList, setLogisticsList] = useState([]);
   const [statusList, setStatusList] = useState([]);
+  const [waysList, setWaysList] = useState([]);
 
   const OrdersList = async () => {
     await api
@@ -116,11 +119,19 @@ const OrderProvider = ({ children }: OrderProviderProps) => {
       .catch((error) => console.log(error));
   };
 
+  const WaysList = () => {
+    api
+      .get("orders/ways-list")
+      .then((response) => setWaysList(response.data))
+      .catch((error) => console.log(error));
+  };
+
   useEffect(() => {
     OrdersList();
     PurchaseOrdersList();
     LogisticsList();
     StatusList();
+    WaysList();
   }, []);
 
   return (
@@ -130,10 +141,12 @@ const OrderProvider = ({ children }: OrderProviderProps) => {
         purchaseOrders,
         logisticsList,
         statusList,
+        waysList,
         OrdersList,
         PurchaseOrdersList,
         LogisticsList,
         StatusList,
+        WaysList,
       }}
     >
       {children}
