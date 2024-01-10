@@ -21,6 +21,7 @@ export interface ElementToBuy {
   element?: MyElement;
   quantity: string;
   measurement: string;
+  unitPrice?: string;
 }
 
 export interface Midia {

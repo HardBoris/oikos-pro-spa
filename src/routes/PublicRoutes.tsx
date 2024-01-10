@@ -3,6 +3,7 @@ import { Home } from "../pages/Home";
 import { Purchases } from "../pages/Purchases";
 import { PurchaseRequisition } from "../pages/Purchases/PurchaseRequisition";
 import { PurchaseOrder } from "../pages/Purchases/PurchaseOrder";
+import { Formato } from "../pages/formato";
 // import { Login } from "../pages/Login";
 // import { Signup } from "../pages/Signup";
 
@@ -17,6 +18,7 @@ export const PublicRoutes = () => {
           <Route path="purchaserequisition" element={<PurchaseRequisition />} />
           <Route path="newpurchaseorder" element={<PurchaseOrder />} />
         </Route>
+        <Route path="/desarrollo" element={<Formato />} />
       </Routes>
       <Outlet />
     </>

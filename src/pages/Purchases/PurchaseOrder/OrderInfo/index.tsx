@@ -56,86 +56,86 @@ export const OrderInfo = ({ informacion, setInformacion }: OrderInfoProps) => {
 
   const sender = (data: Prueba) => {
     setInformacion(data);
-    console.log(informacion);
   };
 
   return (
     <div id="order_info" className="purchase_request_info">
       Información de la Orden de Compra
       <Formulario onSubmit={handleSubmit(sender)} clase="maggie">
-        <div className="field-column">
-          <div className="field-row">
-            <div className="field-50 field-left">
-              <BGInput
-                register={register}
-                name="partner"
-                error={errors.partner?.message}
-                label="Proveedor"
-                placeholder="Proveedor"
-              />
-            </div>
-            <div className="field-20 field-center">
-              <SelectEnum
-                label="Forma de Pagamento"
-                name="way_to_pay"
-                register={register}
-                options={waysList}
-              />
-            </div>
-            <div className="field-20 field-right">
-              <BGInput
-                register={register}
-                name="installments"
-                error={errors.installments?.message}
-                label="Condiciones"
-                placeholder="Condiciones de Pagamento"
-              />
-            </div>
+        {/* <div className="field-column"> */}
+        <div className="fields">
+          <div className="field-50 abajo">
+            <BGInput
+              register={register}
+              name="partner"
+              error={errors.partner?.message}
+              label="Proveedor"
+              placeholder="Proveedor"
+            />
           </div>
-          <div className="field-row">
-            <div className="field-30 field-left">
-              <SelectEnum
-                label="Logistica"
-                name="logisticMode"
-                register={register}
-                options={logisticsList}
-              />
-            </div>
-            <div className="field-30 field-center">
-              <SelectEnum
-                label="Status"
-                name="status"
-                register={register}
-                options={statusList}
-              />
-            </div>
-            <div className="field-30 field-right">
-              <BGInput
-                register={register}
-                name="freight"
-                error={errors.freight?.message}
-                label="Frete"
-                placeholder="0,00"
-              />
-            </div>
+          <div className="field-20 abajo">
+            <SelectEnum
+              label="Forma de Pagamento"
+              name="way_to_pay"
+              register={register}
+              options={waysList}
+            />
           </div>
-          <div className="field-row">
-            <div className="field-75 field-left">
-              <BGTextArea
-                register={register}
-                name="comments"
-                label="Comentarios"
-                placeholder="Comentarios"
-              />
-            </div>
-            <div className="btn_confirm">
-              <Button type="submit">
-                Confirmar
-                {/* <FaPlus /> */}
-              </Button>
-            </div>
+          <div className="field-20 abajo">
+            <BGInput
+              register={register}
+              name="installments"
+              error={errors.installments?.message}
+              label="Condiciones"
+              placeholder="Condiciones de Pagamento"
+            />
           </div>
         </div>
+        <div className="fields">
+          <div className="field-30 abajo">
+            <SelectEnum
+              label="Logistica"
+              name="logisticMode"
+              register={register}
+              options={logisticsList}
+            />
+          </div>
+          <div className="field-30 abajo">
+            <SelectEnum
+              label="Status"
+              name="status"
+              register={register}
+              options={statusList}
+            />
+          </div>
+          <div className="field-30 abajo">
+            <BGInput
+              register={register}
+              name="freight"
+              error={errors.freight?.message}
+              label="Frete"
+              placeholder="0,00"
+            />
+          </div>
+        </div>
+        <div className="fields grande">
+          <div className="field-75 abajo grande">
+            <BGTextArea
+              register={register}
+              name="comments"
+              label="Comentarios"
+              placeholder="Comentarios"
+            />
+          </div>
+          <div className="field-20 abajo grande">
+            <div className="refill"></div>
+            <Button type="submit">
+              Confirmar
+              {/* <FaPlus /> */}
+            </Button>
+          </div>
+        </div>
+        {/* </div> */}
       </Formulario>
     </div>
   );

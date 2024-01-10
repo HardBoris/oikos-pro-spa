@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { OrderDetails } from "../OrderDetails";
 import { OrderDetailsList } from "../OrderDetailsList";
 import { OrderInfo } from "../OrderInfo";
+import { ElementToBuy } from "../../../../context/ElementContext";
 
 export interface Prueba {
   partner: string;
@@ -15,7 +16,7 @@ export interface Prueba {
 
 export const Order = () => {
   const [informacion, setInformacion] = useState<Prueba>({} as Prueba);
-  const [muestra, setMuestra] = useState(false);
+  const [elementos, setElementos] = useState<ElementToBuy[]>([]);
 
   /* useEffect(() => {
     setMuestra(!muestra);
@@ -25,14 +26,14 @@ export const Order = () => {
 
   return (
     <>
-      <OrderInfo informacion={informacion} setInformacion={setInformacion} />
+      {/* <OrderInfo informacion={informacion} setInformacion={setInformacion} /> */}
       {informacion.partner ? (
-        <div>
-          <OrderDetails />
-          <OrderDetailsList />
-        </div>
+        <>
+          <OrderDetails elementos={elementos} setElementos={setElementos} />
+          <OrderDetailsList elementos={elementos} setElementos={setElementos} />
+        </>
       ) : (
-        <div></div>
+        <OrderInfo informacion={informacion} setInformacion={setInformacion} />
       )}
     </>
   );
