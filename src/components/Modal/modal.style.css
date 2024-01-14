@@ -7,7 +7,7 @@
   background: var(--secondary-shadow);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .modal-box {
@@ -16,4 +16,26 @@
   padding: 1rem;
   border-radius: 1rem;
   color: black;
+}
+
+/* @media (min-width: 426px) {
+  .modal-overlay {
+    align-items: center;
+  }
+
+  .modal-box {
+    max-width: 96%;
+    max-height: 500px;
+  }
+} */
+
+@media (min-width: 769px) {
+  .modal-overlay {
+    align-items: center;
+  }
+
+  .modal-box {
+    max-width: 96%;
+    max-height: 80%;
+  }
 }

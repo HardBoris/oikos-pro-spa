@@ -16,48 +16,34 @@ export const OrderDetailsList = ({
     elementos.splice(i, 1);
   };
 
-  console.log(elementos);
-
   return (
-    <div className="wrapper-dt">
-      <div className="data-show">
-        {elementos &&
-          elementos.map((item, index) => (
-            <div key={index} className="data-row">
-              <div className="detail-wrapper-dt">
-                <div className="individual-detail element-dt">
-                  <div className="show">{item.element?.element}</div>
-                </div>
-                {/* <div className="individual-detail type-dt">
-                  <div className="show">{item.elementType}</div>
-                </div> */}
-                <div className="individual-detail qty-dt">
-                  <div className="show">{item.quantity}</div>
-                </div>
-                <div className="individual-detail unit-dt">
-                  <div className="show">{item.measurement}</div>
-                </div>
+    <div className="rack">
+      {/* <div className="data-show"> */}
+      {elementos &&
+        elementos.map((item, index) => (
+          <div key={index} className="shelf">
+            <div className="packet">
+              <div className="wrap-40">
+                <div className="box">{item.element?.element}</div>
               </div>
-              <div className="botonera-dt">
+              <div className="wrap-20">
+                <div className="box">{item.quantity}</div>
+              </div>
+              <div className="wrap-20">
+                <div className="box">{item.measurement}</div>
+              </div>
+              <div className="wrap-10">
                 <Button
-                  variant="yes"
                   type="button"
                   onClick={() => eliminator(item.element?.elementId, index)}
                 >
-                  Eliminar
+                  <FaTrash />
                 </Button>
               </div>
-              <div className="detail-action">
-                <div
-                  className="detail-btn"
-                  onClick={() => eliminator(item.element?.elementId, index)}
-                >
-                  <FaTrash />
-                </div>
-              </div>
             </div>
-          ))}
-      </div>
+          </div>
+        ))}
+      {/* </div> */}
     </div>
   );
 };

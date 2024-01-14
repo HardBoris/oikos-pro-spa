@@ -22,7 +22,9 @@ export const PurchaseOrder = () => {
         <PurchaseOrderList />
       </section>
       <Modal isOpen={isOpen} setIsOpen={handleModal}>
-        <Order />
+        <Order
+          /* isOpen={isOpen} setIsOpen={setIsOpen} */ handleClick={handleModal}
+        />
       </Modal>
     </div>
   );

@@ -6,9 +6,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = ({ children, variant, ...rest }: ButtonProps) => (
-  // <div className="btn">
-  <button {...rest} className={variant}>
-    {children}
-  </button>
-  // </div>
+  <div className="btn">
+    <button {...rest} className={variant}>
+      {children}
+    </button>
+  </div>
 );
