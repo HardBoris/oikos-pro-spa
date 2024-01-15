@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import { localApi as api } from "../services/api";
+import { Detail } from "./DetailContext";
 
 interface OrderProviderProps {
   children: ReactNode;
@@ -22,12 +23,22 @@ export interface Order {
   comments?: string;
 }
 
+export interface PurchaseOrderData {
+  partner: string;
+  wayTopay: string;
+  installments: string;
+  freight: number;
+  logistic: string;
+  details: Detail[];
+}
+
 interface OrderContextData {
   orders: Order[];
   purchaseOrders: Order[];
   logisticsList: string[];
   statusList: string[];
   waysList: string[];
+  OrderCreator: (data: PurchaseOrderData) => void;
   OrdersList: () => void;
   PurchaseOrdersList: () => void;
   LogisticsList: () => void;
@@ -70,6 +81,13 @@ const OrderProvider = ({ children }: OrderProviderProps) => {
   const [logisticsList, setLogisticsList] = useState([]);
   const [statusList, setStatusList] = useState([]);
   const [waysList, setWaysList] = useState([]);
+
+  const OrderCreator = async (data: PurchaseOrderData) => {
+    await api
+      .post("/orders/purchase-orders/register", data)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+  };
 
   const OrdersList = async () => {
     await api
@@ -142,6 +160,7 @@ const OrderProvider = ({ children }: OrderProviderProps) => {
         logisticsList,
         statusList,
         waysList,
+        OrderCreator,
         OrdersList,
         PurchaseOrdersList,
         LogisticsList,

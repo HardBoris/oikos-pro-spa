@@ -12,6 +12,7 @@ export interface Detail {
   element: string;
   quantity: number;
   measurement: string;
+  unitPrice?: number;
 }
 
 interface DetailContextData {

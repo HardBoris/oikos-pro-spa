@@ -26,11 +26,14 @@ export const OrderDetailsList = ({
               <div className="wrap-40">
                 <div className="box">{item.element?.element}</div>
               </div>
-              <div className="wrap-20">
+              <div className="wrap-10">
                 <div className="box">{item.quantity}</div>
               </div>
-              <div className="wrap-20">
+              <div className="wrap-10">
                 <div className="box">{item.measurement}</div>
+              </div>
+              <div className="wrap-10">
+                <div className="box">{item.unitPrice}</div>
               </div>
               <div className="wrap-10">
                 <Button

@@ -111,7 +111,7 @@ export const OrderDetails = ({
               options={stock}
             />
           </div>
-          <div className="field-20 abajo">
+          <div className="field-10 abajo">
             <BGInput
               register={register}
               name="quantity"
@@ -120,13 +120,22 @@ export const OrderDetails = ({
               placeholder="moveQuantity"
             />
           </div>
-          <div className="field-20 abajo">
+          <div className="field-10 abajo">
             <BGInput
               register={register}
               name="measurement"
               error={errors.measurement?.message}
               label="Unidade"
               placeholder="m, k, l"
+            />
+          </div>
+          <div className="field-10 abajo">
+            <BGInput
+              register={register}
+              name="unitPrice"
+              error={errors.unitPrice?.message}
+              label="Preço Unitario"
+              placeholder="Preço Unitário"
             />
           </div>
           <div className="field-10 abajo">
