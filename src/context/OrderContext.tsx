@@ -7,6 +7,7 @@ import {
 } from "react";
 import { localApi as api } from "../services/api";
 import { Detail } from "./DetailContext";
+import { ElementToBuy } from "./ElementContext";
 
 interface OrderProviderProps {
   children: ReactNode;
@@ -25,11 +26,11 @@ export interface Order {
 
 export interface PurchaseOrderData {
   partner: string;
-  wayTopay: string;
+  wayToPay: string;
   installments: string;
-  freight: number;
+  freight: number | undefined;
   logistic: string;
-  details: Detail[];
+  details: ElementToBuy[];
 }
 
 interface OrderContextData {
@@ -85,7 +86,7 @@ const OrderProvider = ({ children }: OrderProviderProps) => {
   const OrderCreator = async (data: PurchaseOrderData) => {
     await api
       .post("/orders/purchase-orders/register", data)
-      .then((response) => console.log(response))
+      .then((response) => console.log(response.data))
       .catch((error) => console.log(error));
   };
 

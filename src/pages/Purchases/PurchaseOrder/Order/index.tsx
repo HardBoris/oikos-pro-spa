@@ -4,6 +4,7 @@ import { OrderDetailsList } from "../OrderDetailsList";
 import { OrderInfo } from "../OrderInfo";
 import { ElementToBuy } from "../../../../context/ElementContext";
 import { Button } from "../../../../components/Button";
+import { useOrder } from "../../../../context/OrderContext";
 
 export interface Prueba {
   partner: string;
@@ -18,14 +19,22 @@ export interface Prueba {
 export const Order = ({ /* isOpen, setIsOpen */ handleClick }: any) => {
   const [informacion, setInformacion] = useState<Prueba>({} as Prueba);
   const [elementos, setElementos] = useState<ElementToBuy[]>([]);
+  const { OrderCreator } = useOrder();
 
   /* useEffect(() => {
     setMuestra(!muestra);
   }, [informacion]); */
 
   const enviar = () => {
-    console.log(informacion);
-    console.log(elementos);
+    const amor = {
+      partner: informacion.partner,
+      wayToPay: informacion.way_to_pay,
+      installments: informacion.installments,
+      freight: informacion.freight,
+      logistic: informacion.logistic,
+      details: elementos,
+    };
+    OrderCreator(amor);
     handleClick();
   };
 

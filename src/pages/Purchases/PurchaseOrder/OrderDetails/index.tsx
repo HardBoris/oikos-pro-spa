@@ -111,7 +111,7 @@ export const OrderDetails = ({
               options={stock}
             />
           </div>
-          <div className="field-10 abajo">
+          <div className="field-0 abajo">
             <BGInput
               register={register}
               name="quantity"
