@@ -8,6 +8,8 @@ import { SelectEnum } from "../components/SelectEnum";
 import { useOrder } from "../context/OrderContext";
 import { BGTextArea } from "../components/TextArea";
 import { Button } from "../components/Button";
+import { usePartner } from "../context/PartnerContext";
+import { useEffect } from "react";
 
 const OrderInfoSchema = yup.object().shape({
   partner: yup.string().required(),
@@ -23,6 +25,7 @@ const OrderInfoSchema = yup.object().shape({
 });
 
 export const Formato = () => {
+  const { PartnersList } = usePartner();
   const { logisticsList, statusList, waysList } = useOrder();
   const {
     // formState,
@@ -33,6 +36,10 @@ export const Formato = () => {
   } = useForm<Prueba>({
     resolver: yupResolver(OrderInfoSchema),
   });
+
+  useEffect(() => {
+    PartnersList();
+  }, []);
 
   const sender = (data: Prueba) => {
     console.log(data);

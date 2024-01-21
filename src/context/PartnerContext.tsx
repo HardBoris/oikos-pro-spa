@@ -25,7 +25,7 @@ export interface Partner {
 interface PartnerContextData {
   partner: Partner;
   partners: Partner[];
-  Partners: () => void;
+  PartnersList: () => void;
   Partner: (data: Partner) => void;
   Fornecedor: (id: string) => void;
   PartnerEditor: (data: Partner) => void;
@@ -44,18 +44,19 @@ const PartnerProvider = ({ children }: PartnerProviderProps) => {
   const [partners, setPartners] = useState<Partner[]>([]);
   const [partner, setPartner] = useState<Partner>({} as Partner);
 
-  const Partners = async () => {
+  const PartnersList = async () => {
     await api
-      .get(`/${company}/partners`)
+      .get(`/partners`)
       .then((response) => {
         setPartners(response.data);
       })
       .catch((error) => console.log(error));
   };
 
-  /* useEffect(() => {
-    Suppliers();
-  }, []); */
+  useEffect(() => {
+    PartnersList();
+  }, []);
+  console.log(partners);
 
   const Partner = async (data: Partner) => {
     await api
@@ -96,7 +97,7 @@ const PartnerProvider = ({ children }: PartnerProviderProps) => {
         partner,
         partners,
         Partner,
-        Partners,
+        PartnersList,
         Fornecedor,
         PartnerEditor,
         PartnerEliminator,

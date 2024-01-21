@@ -9,8 +9,10 @@ import { SelectEnum } from "../../../../components/SelectEnum";
 import "./style.css";
 import { BGTextArea } from "../../../../components/TextArea";
 import { Button } from "../../../../components/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Prueba } from "../Order";
+import { usePartner } from "../../../../context/PartnerContext";
+import { BGSelect } from "../../../../components/BGSelect";
 
 const OrderInfoSchema = yup.object().shape({
   partner: yup.string().required(),
@@ -42,7 +44,11 @@ interface OrderInfoProps {
 
 export const OrderInfo = ({ informacion, setInformacion }: OrderInfoProps) => {
   const { logisticsList, statusList, waysList } = useOrder();
-  // const [informacion, setInformacion] = useState<Prueba>({} as Prueba);
+  const { PartnersList, partners } = usePartner();
+
+  useEffect(() => {
+    PartnersList();
+  }, []);
 
   const {
     // formState,
@@ -65,13 +71,20 @@ export const OrderInfo = ({ informacion, setInformacion }: OrderInfoProps) => {
         {/* <div className="field-column"> */}
         <div className="fields">
           <div className="field-50 abajo">
-            <BGInput
+            <BGSelect
               register={register}
               name="partner"
               error={errors.partner?.message}
               label="Proveedor"
               placeholder="Proveedor"
-            />
+            >
+              {partners &&
+                partners.map((partner, index) => (
+                  <option key={index} value={partner.partnerId}>
+                    {partner.fantasyName}
+                  </option>
+                ))}
+            </BGSelect>
           </div>
           <div className="field-20 abajo">
             <SelectEnum

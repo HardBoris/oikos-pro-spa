@@ -52,7 +52,7 @@ const RequisitionProvider = ({ children }: RequisitionProviderProps) => {
 
   const Solicitudes = async () => {
     await api
-      .get(`/${company}/requisitions`)
+      .get(`/requisitions`)
       .then((response) => {
         setSolicitudes(response.data);
         // console.log(response.data);
@@ -66,28 +66,28 @@ const RequisitionProvider = ({ children }: RequisitionProviderProps) => {
 
   const Peticion = async (data: Requisicion) => {
     await api
-      .post(`/${company}/requisitions/register`, data)
+      .post(`/requisitions/register`, data)
       .then((response) => setSolicitud(response.data))
       .catch((error) => console.log(error));
   };
 
   const Pedido = async (id: string) => {
     await api
-      .get(`/${company}/requisitions/${id}`)
+      .get(`/requisitions/${id}`)
       .then((response) => setSolicitud(response.data))
       .catch((error) => console.log(error));
   };
 
   const RequestEditor = async (data: Requisicion) => {
     await api
-      .patch(`/${company}/requisitions/${data.requestId}`, data)
+      .patch(`/requisitions/${data.requestId}`, data)
       .then((response) => setSolicitud(response.data))
       .catch((error) => console.log(error));
   };
 
   const requestEliminator = async (id: string) => {
     await api
-      .delete(`/${company}/requisitions/${id}`)
+      .delete(`/requisitions/${id}`)
       .then((response) => console.log(response.data))
       .catch((error) => console.log(error));
   };

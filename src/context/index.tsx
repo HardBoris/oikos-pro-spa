@@ -17,10 +17,12 @@ interface AppProviderProps {
 
 export const AppProvider = ({ children }: AppProviderProps) => (
   <PurchaseRequestProvider>
-    <OrderProvider>
-      <ElementProvider>
-        <RequisitionProvider>{children}</RequisitionProvider>
-      </ElementProvider>
-    </OrderProvider>
+    <PartnerProvider>
+      <OrderProvider>
+        <ElementProvider>
+          <RequisitionProvider>{children}</RequisitionProvider>
+        </ElementProvider>
+      </OrderProvider>
+    </PartnerProvider>
   </PurchaseRequestProvider>
 );

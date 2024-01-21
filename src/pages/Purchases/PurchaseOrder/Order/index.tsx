@@ -5,6 +5,7 @@ import { OrderInfo } from "../OrderInfo";
 import { ElementToBuy } from "../../../../context/ElementContext";
 import { Button } from "../../../../components/Button";
 import { useOrder } from "../../../../context/OrderContext";
+import { Partner, usePartner } from "../../../../context/PartnerContext";
 
 export interface Prueba {
   partner: string;
@@ -17,13 +18,16 @@ export interface Prueba {
 }
 
 export const Order = ({ /* isOpen, setIsOpen */ handleClick }: any) => {
+  const { partners } = usePartner();
+  const { OrderCreator } = useOrder();
   const [informacion, setInformacion] = useState<Prueba>({} as Prueba);
   const [elementos, setElementos] = useState<ElementToBuy[]>([]);
-  const { OrderCreator } = useOrder();
+  const [proveedor, setProveedor] = useState({} as Partner);
 
   /* useEffect(() => {
-    setMuestra(!muestra);
-  }, [informacion]); */
+    Partners();
+  }, []); */
+  console.log(partners);
 
   const enviar = () => {
     const amor = {
