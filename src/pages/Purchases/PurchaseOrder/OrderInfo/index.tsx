@@ -76,7 +76,8 @@ export const OrderInfo = ({ informacion, setInformacion }: OrderInfoProps) => {
               name="partner"
               error={errors.partner?.message}
               label="Proveedor"
-              placeholder="Proveedor"
+              enlace="Nuevo Proveedor"
+              ruta="/partners"
             >
               {partners &&
                 partners.map((partner, index) => (
