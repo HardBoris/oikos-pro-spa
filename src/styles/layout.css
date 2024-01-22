@@ -256,7 +256,7 @@ footer {
   .shelf {
     width: 1200px;
     max-width: 96%;
-    height: 100px;
+    min-height: 100px;
     flex-direction: row;
   }
 
