@@ -64,6 +64,8 @@ export const OrderInfo = ({ informacion, setInformacion }: OrderInfoProps) => {
     setInformacion(data);
   };
 
+  console.log(informacion);
+
   return (
     <div id="order_info" className="purchase_request_info">
       Información de la Orden de Compra

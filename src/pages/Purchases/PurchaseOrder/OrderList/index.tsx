@@ -13,6 +13,8 @@ export const PurchaseOrderList = () => {
         purchaseOrders.map((item, index) => (
           <div key={index} className="request-row">
             <div>{item.orderId}</div>
+            <div>{item.orderDate}</div>
+            <div>{item.partner?.fantasyName}</div>
           </div>
         ))}
     </div>

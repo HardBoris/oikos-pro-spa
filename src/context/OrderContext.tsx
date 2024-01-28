@@ -8,6 +8,7 @@ import {
 import { localApi as api } from "../services/api";
 import { Detail } from "./DetailContext";
 import { ElementToBuy } from "./ElementContext";
+import { Partner } from "./PartnerContext";
 
 interface OrderProviderProps {
   children: ReactNode;
@@ -18,7 +19,7 @@ export interface Order {
   orderDate: string;
   orderUpdateDate: string;
   orderNumber: string;
-  partner?: string;
+  partner?: Partner;
   logistic?: string;
   status?: string;
   comments?: string;
