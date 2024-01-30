@@ -26,7 +26,7 @@ footer {
 
 .rack {
   /* height: 96%; */
-  width: 100%;
+  width: 90%;
   margin: 20px auto;
   /* border: 1px solid black; */
   display: flex;
@@ -249,7 +249,7 @@ footer {
 
   .rack {
     max-height: 300px;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   .fields,
